@@ -1,0 +1,6 @@
+{
+  "name": "Aethera",
+  "description": "Cinematic hero section featuring looping video background with custom fade transitions and Instrument Serif typography.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
