@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
 import logoTerrazap from '../assets/images/logo-terrazap.png';
 import logoSideBadge from '../assets/images/logo-side-badge.png';
 
@@ -8,8 +6,6 @@ interface NavbarProps {
 }
 
 export function Navbar({ onCtaClick }: NavbarProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <header className="relative z-10 w-full" id="site-header">
       <nav
@@ -79,8 +75,8 @@ export function Navbar({ onCtaClick }: NavbarProps) {
           </a> */}
         </div>
 
-        {/* CTA Button & Mobile Menu Toggle */}
-        <div className="flex items-center space-x-4">
+        {/* CTA Button (desktop only) */}
+        <div className="hidden md:flex items-center space-x-4">
           <button
             id="nav-cta-btn"
             type="button"
@@ -89,64 +85,8 @@ export function Navbar({ onCtaClick }: NavbarProps) {
           >
             Explorar leituras
           </button>
-
-          {/* Mobile hamburger button */}
-          <button
-            id="mobile-menu-toggle"
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-[#000000] hover:text-[#6F6F6F] transition-colors"
-            aria-label="Toggle mobile menu"
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
         </div>
       </nav>
-
-      {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div
-          id="mobile-menu-dropdown"
-          className="md:hidden px-8 py-4 bg-white/95 backdrop-blur-md border-b border-black/5 flex flex-col space-y-4 text-sm"
-        >
-          <a
-            href="#home"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-[#000000] font-medium transition-colors"
-          >
-            Home
-          </a>
-          <a
-            href="#studio"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-[#6F6F6F] transition-colors hover:text-[#000000]"
-          >
-            Studio
-          </a>
-          <a
-            href="#about"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-[#6F6F6F] transition-colors hover:text-[#000000]"
-          >
-            About
-          </a>
-          <a
-            href="#journal"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-[#6F6F6F] transition-colors hover:text-[#000000]"
-          >
-            Journal
-          </a>
-          <a
-            href="#reach-us"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-[#6F6F6F] transition-colors hover:text-[#000000]"
-          >
-            Reach Us
-          </a>
-        </div>
-      )}
     </header>
   );
 }
